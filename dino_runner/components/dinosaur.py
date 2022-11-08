@@ -36,7 +36,7 @@ class Dinosaur:
         self.step_index += 1
 
     def draw(self, screen):
-        screen.blit(self.image, (self.dino_rect))
+        screen.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
 
 
 
