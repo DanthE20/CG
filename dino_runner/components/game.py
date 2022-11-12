@@ -1,10 +1,17 @@
 import pygame
+<<<<<<< HEAD
 from dino_runner.components import text_utils
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.utils.constants import (BG, FPS, ICON, SCREEN_HEIGHT,SCREEN_WIDTH, TITLE, RUNNING)
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.components.player_hearts.player_heart_manager import PlayerHeartManager
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
+=======
+
+from dino_runner.utils.constants import BG, BACKGROUND, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS
+from dino_runner.components.dinosaur import Dinosaur
+
+>>>>>>> 59cd9f0f620b830fc440cecb475f87984a46f516
 
 class Game:
 
@@ -30,6 +37,8 @@ class Game:
         self.points = 0
         self.running = True
         self.death_count = 0
+
+        self.player = Dinosaur()
 
     def run(self):
         self.obstacle_manager.reset_obstacles()
@@ -60,19 +69,28 @@ class Game:
 
     def update(self):
         self.player.update()
+<<<<<<< HEAD
         self.obstacle_manager.update(self)
         self.power_up_manager.update(self.points, self.game_speed, self.player)
+=======
+>>>>>>> 59cd9f0f620b830fc440cecb475f87984a46f516
 
     def draw(self):
         self.screen.blit(self.background, [0, 0])
         self.score()
         self.clock.tick(FPS)
         self.draw_background()
+<<<<<<< HEAD
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
         self.player_heart_manager.draw(self.screen)
         self.power_up_manager.draw(self.screen)
         
+=======
+
+        self.player.draw(self.screen)
+
+>>>>>>> 59cd9f0f620b830fc440cecb475f87984a46f516
         pygame.display.update()
         pygame.display.flip()
 
@@ -85,6 +103,7 @@ class Game:
             self.screen.blit(BG, (image_width + self.x_pos_bg, self.y_pos_bg))
             self.x_pos_bg = 0
         self.x_pos_bg -= self.game_speed
+<<<<<<< HEAD
     
     def score(self):
         self.points += 1
@@ -156,3 +175,10 @@ class Game:
         pygame.display.update()
 
         self.handle_key_events_on_menu()
+=======
+
+        image_width = BACKGROUND.get_width()
+        self.screen.blit(BACKGROUND, [0,410])
+
+        
+>>>>>>> 59cd9f0f620b830fc440cecb475f87984a46f516
